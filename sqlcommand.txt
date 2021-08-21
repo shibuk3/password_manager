@@ -1,0 +1,16 @@
+CREATE TABLE users(
+    user_id INTEGER NOT NULL AUTO_INCREMENT,
+    email VARCHAR(128),
+    password VARCHAR(128),
+    PRIMARY KEY(user_id)
+)ENGINE=INNODB;
+
+CREATE TABLE passhold(
+    passhold_id INTEGER NOT NULL AUTO_INCREAMENT,
+    user_id INTEGER,
+    association VARCHAR(128),
+    login_id VARCHAR(128),
+    log_password VARCHAR(128),
+    PRIMARY KEY (passhold_id),
+	CONSTRAINT FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=INNODB;
