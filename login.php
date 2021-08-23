@@ -31,7 +31,7 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
             return;
         }
         else{
-            $check = hash('md5', $salt.$_POST['pass']);
+            $check = hash('sha256', $salt.$_POST['pass']);
             if($check==$count){
                 $_SESSION['user_id']=$id;
                 $_SESSION['success'] = "Succesfully Logged In";
