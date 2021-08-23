@@ -28,7 +28,7 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
             header("Location: register.php");
             return;
         }
-        $check = hash('md5', $salt.$_POST['pass']);
+        $check = hash('sha256', $salt.$_POST['pass']);
         $stmt = $pdo->prepare('INSERT INTO users
         (email,password) VALUES ( :em, :ps)');
         $stmt->execute(array(
